@@ -1,0 +1,19 @@
+Feature: Search Amazon.com for text string
+  
+  In order to see search results on Amazon.com
+  As a user (prospective buyer)
+  I want to search for a text string
+
+  Scenario: text search                            # features\amazon_text_search.feature:7
+    Given the Amazon search page                   # features/step_definitions/text_search_steps.rb:42
+    When I search for a text string "qa testing"   # features/step_definitions/text_search_steps.rb:46
+    Then I see search results for that text string # features/step_definitions/text_search_steps.rb:51
+
+  Scenario: search results count                         # features\amazon_text_search.feature:12
+    Given I have searched for a text string "qa testing" # features/step_definitions/text_search_steps.rb:57
+    When I see the search results                        # features/step_definitions/text_search_steps.rb:63
+    Then the number of results is a positive integer     # features/step_definitions/text_search_steps.rb:69
+
+2 scenarios (2 passed)
+6 steps (6 passed)
+0m28.519s
